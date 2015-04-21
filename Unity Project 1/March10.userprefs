@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\InventoryDatabaseWindow.cs">
+    <Files>
+      <File FileName="Assets\Inventory\Slot.cs" Line="420" Column="26" />
+      <File FileName="Assets\Editor\InventoryDatabaseWindow.cs" Line="431" Column="7" />
+      <File FileName="Assets\Inventory\InventoryDatabase.cs" Line="1" Column="1" />
+      <File FileName="Assets\Inventory\Item\ElementType.cs" Line="25" Column="3" />
+      <File FileName="Assets\Inventory\Item\InventoryElement.cs" Line="38" Column="1" />
+      <File FileName="Assets\Inventory\Item\ElementAction.cs" Line="8" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

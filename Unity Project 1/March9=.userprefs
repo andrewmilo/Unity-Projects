@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Inventory\CooldownManager.cs">
+    <Files>
+      <File FileName="Assets\Inventory\Slot.cs" Line="455" Column="7" />
+      <File FileName="Assets\Inventory\InventoryDatabase.cs" Line="48" Column="1" />
+      <File FileName="Assets\Inventory\Item\ElementType.cs" Line="13" Column="4" />
+      <File FileName="Assets\Inventory\CooldownManager.cs" Line="154" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
