@@ -8,6 +8,11 @@ public class CharacterMenu : InventoryObject {
 		InventoryManager.characterMenu = this;
 	}
 
+	void Start()
+	{
+
+	}
+
 	protected override void onShiftClick (InventoryElement element)
 	{
 //		if(InventoryManager.actionBar.enabled)

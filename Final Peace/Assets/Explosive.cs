@@ -7,11 +7,6 @@ public class Explosive : MonoBehaviour {
 	public float radius;
 	public ParticleSystem explosionVisual;
 
-	void Start()
-	{
-
-	}
-
 	public IEnumerator Detonate (float delayInSeconds)
 	{
 		yield return new WaitForSeconds(delayInSeconds);

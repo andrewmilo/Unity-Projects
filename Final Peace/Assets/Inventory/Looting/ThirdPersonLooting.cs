@@ -65,8 +65,8 @@ public class ThirdPersonLooting : MonoBehaviour
 								{
 									if(invOb != null)
 									{
-										if(invOb.AddItem (ref temp, false))
-											Destroy (lootableObject.gameObject);
+//										if(invOb.AddItem (ref temp, false))
+//											Destroy (lootableObject.gameObject);
 										
 										break;
 									}

@@ -76,7 +76,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 	{
 		rectTransform = GetComponent<RectTransform>();
 
-
 		//Create GameObject for BG
 		backgroundImageTransform = new GameObject("Slot Background Image").transform;
 		backgroundImageTransform.gameObject.hideFlags = HideFlags.HideInHierarchy;
@@ -474,6 +473,17 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 				InventoryManager.draggedItem = null;
 			}
 		}
+	}
+
+	public bool IsEmpty()
+	{
+		if (inventoryElement == null)
+			return true;
+
+		if (inventoryElement.id == -1)
+			return true;
+
+		return false;
 	}
 
 	private void OnDisable()

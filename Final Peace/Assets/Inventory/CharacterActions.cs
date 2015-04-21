@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CharacterActions : MonoBehaviour {
 
@@ -103,13 +105,35 @@ public class CharacterActions : MonoBehaviour {
 		}
 	}
 
-	public void Equip(InventoryElement e)
+	public void Equip(ref InventoryElement e)
 	{
 		CharacterMenu charMenu = FindObjectOfType<CharacterMenu>();
 
 		if(charMenu != null)
 		{
-			charMenu.AddItem (ref e, false);
+			List<Slot> fitSlots = new List<Slot>();// charMenu.Slots.FindAll (s => s.acceptedTypes.Exists(x => x.ID == e.type.ID || x.isAncestorOf(e.type)));
+
+			foreach(Slot s in charMenu.Slots)
+			{
+				foreach(ElementType eType in s.acceptedTypes)
+				{
+					if(eType.ID == e.type.ID || eType.isAncestorOf (e.type))
+						fitSlots.Add (s);
+				}
+			}
+
+			Slot fitSlot = fitSlots.Find(s => s.IsEmpty());
+
+			if(fitSlot != null)
+			{
+				fitSlot.inventoryElement = e;
+				e = null;
+			}
+			else
+			{
+				fitSlots[0].inventoryElement = e;
+				e = null;
+			}
 		}
 	}
 }

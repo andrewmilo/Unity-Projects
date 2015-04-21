@@ -504,6 +504,13 @@ public class InventoryDatabaseWindow : EditorWindow{
 					
 					if(itemAction != null)
 					{
+						GUILayout.BeginHorizontal ();
+						GUILayout.Space (30);
+						itemAction.foldout = EditorGUILayout.Foldout (itemAction.foldout, "Action " + m.ToString ());
+						if(GUILayout.Button ("x"))
+							inventoryElement.actions.RemoveAt (m);
+						GUILayout.EndHorizontal ();
+
 						itemAction.OnGUI ();
 					}
 				}

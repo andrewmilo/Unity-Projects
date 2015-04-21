@@ -69,6 +69,7 @@
      <Compile Include="Assets\Inventory\LootableObject.cs" />
      <Compile Include="Assets\Inventory\Looting\FirstPersonLooting.cs" />
      <Compile Include="Assets\Inventory\Looting\ThirdPersonLooting.cs" />
+     <Compile Include="Assets\Inventory\LootingScript.cs" />
      <Compile Include="Assets\Inventory\Slot.cs" />
      <Compile Include="Assets\Inventory\Spells.cs" />
      <Compile Include="Assets\Inventory\Stats.cs" />

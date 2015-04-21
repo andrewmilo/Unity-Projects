@@ -305,11 +305,11 @@ public abstract class InventoryObject : MonoBehaviour
 	/// <summary>
 	/// Adds an item to this inventory object by spilling the stack across qualified slots.
 	/// </summary>
-	public bool AddItem(ref InventoryElement element, bool tryPreserveStack)
+	public void AddItem(ref InventoryElement element, bool tryPreserveStack)
 	{
 		//If full then return entire stack back
 		if(isFull (element))
-			return false;
+			return;
 
 		//Try to preserve stack by finding an empty slot
 		//Else the item is split up
@@ -322,7 +322,7 @@ public abstract class InventoryObject : MonoBehaviour
 					Slots[i].inventoryElement = new InventoryElement(element);
 					element = InventoryElement.Empty;
 
-					return true;
+					return;
 				}
 			}
 		}
@@ -364,7 +364,7 @@ public abstract class InventoryObject : MonoBehaviour
 								slot.inventoryElement = new InventoryElement(element);
 								element = InventoryElement.Empty;
 
-								return true;
+								return;
 							}
 						}
 					}
@@ -392,17 +392,17 @@ public abstract class InventoryObject : MonoBehaviour
 			}
 		}
 
-		//If thewre is an empty slot
+		//If there is an empty slot
 		if(slotIndex != -1)
 		{
 			Slots[slotIndex].inventoryElement = new InventoryElement (element);
 
 			element = InventoryElement.Empty;
 
-			return true;
+			return;
 		}
 
-		return false;
+		return;
 	}
 
 	/// <summary>

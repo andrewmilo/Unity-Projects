@@ -40,13 +40,15 @@ public class FirstPersonLooting : MonoBehaviour
 				{
 					GameObject possibleItem = hit.transform.gameObject;
 
-					if(possibleItem.GetComponent<LootableObject>() != null)
+					LootableObject cache = possibleItem.GetComponent<LootableObject>();
+
+					if(cache != null)
 					{
 						if(Input.GetKeyDown (lootKey))
 						{
-							if(lootableObject != possibleItem.GetComponent<LootableObject>())
+							if(lootableObject != cache)
 							{
-								lootableObject = possibleItem.GetComponent<LootableObject>();
+								lootableObject = cache;
 
 								InventoryElement invElem = InventoryDatabase.GetElement (lootableObject.elementID);
 
@@ -65,10 +67,14 @@ public class FirstPersonLooting : MonoBehaviour
 									{
 										if(invOb != null)
 										{
-											if(invOb.AddItem (ref temp, false))
-												Destroy (lootableObject.gameObject);
+											if(temp.stack > 0)
+												invOb.AddItem (ref temp, false);
 
-											break;
+											if(temp.stack == 0)
+											{
+												Destroy (lootableObject.gameObject);
+												break;
+											}
 										}
 									}
 								}
