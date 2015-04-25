@@ -157,7 +157,7 @@ public class ElementAction : ICooldown
 							GUILayout.Space (45);
 							selectedMethod = EditorGUILayout.Popup ("Methods", selectedMethod, methodNames);
 							GUILayout.EndHorizontal ();
-							
+
 							if(selectedMethod >= methodNames.Length)
 							{
 								if(methodNames.Length <= 0)
@@ -237,6 +237,11 @@ public class ElementAction : ICooldown
 				
 				if(parameterFoldout)
 				{
+					GUILayout.BeginHorizontal ();
+					GUILayout.Space (60);
+					sendThisItem = EditorGUILayout.Toggle ("Send Item", sendThisItem);
+					GUILayout.EndHorizontal ();
+
 					for(int i = 0; i < stringParameters.Count; i++)
 					{
 						GUILayout.BeginHorizontal ();
@@ -246,94 +251,26 @@ public class ElementAction : ICooldown
 							stringParameters.RemoveAt(i);
 						GUILayout.EndHorizontal ();
 					}
-					
-					if(GUILayout.Button("Add"))
-						stringParameters.Add (null);
-					
+
 					GUILayout.BeginHorizontal ();
 					GUILayout.Space (60);
-					sendThisItem = EditorGUILayout.Toggle ("Send Item", sendThisItem);
+					if(GUILayout.Button("Add", EditorStyles.miniButton))
+						stringParameters.Add (null);
 					GUILayout.EndHorizontal ();
-					
-					string sig = activationMethodName;
+
+					string sig = "";
 					
 					if(sendThisItem)
-						sig += "(InventoryElement element ";
+						sig += "InventoryElement";
 					if(stringParameters.Count > 0)
-						sig += "string stringParameter ";
+						stringParameters.ForEach(x => sig += " string");
 					
 					GUILayout.BeginHorizontal ();
 					GUILayout.Space (60);
 					EditorGUILayout.LabelField ("Signature", sig, EditorStyles.miniBoldLabel);
 					GUILayout.EndHorizontal ();
 				}
-				
-				GUILayout.BeginHorizontal ();
-				GUILayout.Space (45);
-				cooldownsFoldout = EditorGUILayout.Foldout (cooldownsFoldout, "Cooldown");
-				GUILayout.EndHorizontal ();
-				
-				if(cooldownsFoldout)
-				{
-					for(int i = 0; i < cooldownSettings.Count; i++)
-					{
-						CooldownSettings cs = cooldownSettings[i];
-						
-						GUILayout.BeginHorizontal ();
-						GUILayout.Space (60);
-						cs.cooldownFoldout = EditorGUILayout.Foldout(cs.cooldownFoldout, "Cooldown " + i.ToString ());
-						if(GUILayout.Button ("x"))
-							cooldownSettings.RemoveAt (i);
-						GUILayout.EndHorizontal ();
-						
-						if(cs.cooldownFoldout)
-						{
-							GUILayout.BeginHorizontal ();
-							GUILayout.Space (75);
-							cs.selOption = EditorGUILayout.Popup ("On", cs.selOption, cs.options);
-							GUILayout.EndHorizontal ();
-							
-							if(cs.options[cs.selOption] == "Type")
-							{
-								GUILayout.BeginHorizontal ();
-								GUILayout.Space (75);
-								List<string> names = new List<string>();
-								names.Add ("None");
-//								names.Add (editType.name);
-//								if(InventoryDatabase.Instance != null)
-//								{
-//									//Get all parents of element type
-//									InventoryDatabase.GetAllElementTypes ().FindAll (x => x.isAncestorOf(editType)).ForEach (x => names.Add (x.name));
-//								}
-								cs.selType = EditorGUILayout.Popup ("Element Type", cs.selType, names.ToArray ());
-								cs.selectedType = names[cs.selType];
-								GUILayout.EndHorizontal ();
-							}
-							
-							GUILayout.BeginHorizontal ();
-							GUILayout.Space (75);
-							cs.cooldownTime = EditorGUILayout.FloatField ("Cooldown Time", cs.cooldownTime);
-							GUILayout.EndHorizontal ();
-							
-							GUILayout.BeginHorizontal ();
-							GUILayout.Space (75);
-							cs.drawCooldownAnimation = EditorGUILayout.Toggle ("Draw Cooldown Animation", cs.drawCooldownAnimation);
-							GUILayout.EndHorizontal ();
-							
-							if(cs.drawCooldownAnimation)
-							{
-								GUILayout.BeginHorizontal ();
-								GUILayout.Space (75);
-								cs.drawCooldownTimer = EditorGUILayout.Toggle ("Draw Timer", cs.drawCooldownTimer);
-								GUILayout.EndHorizontal ();
-							}
-						}
-					}
-					
-					if(GUILayout.Button ("Add Cooldown"))
-						cooldownSettings.Add (new CooldownSettings());
-				} 									
-				
+	
 				GUILayout.BeginHorizontal ();
 				GUILayout.Space (45);
 				tooltipFoldout = EditorGUILayout.Foldout(tooltipFoldout, "Tooltip");

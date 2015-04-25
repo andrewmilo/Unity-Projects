@@ -46,8 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BlockInteraction.cs" />
-     <Compile Include="Assets\BreakableObject.cs" />
      <Compile Include="Assets\Crosshair.cs" />
      <Compile Include="Assets\Explosive.cs" />
      <Compile Include="Assets\Health.cs" />
@@ -77,7 +75,6 @@
      <Compile Include="Assets\Inventory\TooltipSettings.cs" />
      <Compile Include="Assets\Misc\CursorSettings.cs" />
      <Compile Include="Assets\Terrain\TerrainGenerator.cs" />
-     <Compile Include="Assets\WorldInteraction.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
